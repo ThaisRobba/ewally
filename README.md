@@ -1,3 +1,38 @@
+# eWally - Teste Técnico
+
+## Requisitos
+
+- [NPM 6.0.0+](https://www.npmjs.com/get-npm)
+- [Git](https://git-scm.com/downloads)
+
+## Setup
+
+- Clone o repositório git
+- Navegue até a pasta do mesmo via linha de comando
+- Execute o comando `npm install`
+
+## Execução local
+
+- Na linha de comando, navegue até a pasta do projeto
+- Execute o comando `npm start`
+
+## Testes
+
+- Na linha de comando, navegue até a pasta do projeto
+- Execute o comando `npm test`
+
+### Execução
+
+### Adicionando novos testes
+
+## Notas
+
+### Por que não usar service workers?
+
+Diretrizes de segurança, reforçar timeout, ???
+
+#### generated md
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
