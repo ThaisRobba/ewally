@@ -27,5 +27,6 @@
   ],
   "devDependencies": {
     "react-testing-library": "^6.0.3"
-  }
+  },
+  "proxy": "https://apidev.ewally.com.br/"
 }

@@ -25,6 +25,8 @@
 
 ## Notas
 
+### Escolha da lib de testes
+
 É muito comum os projetos ReactJS utilizaram a Enzyme, do AirBnB. Um dos maiores problemas com essa biblioteca é que, pelo jeito que a mesma é estruturada, o suporte para features novas de React acaba sempre tendo um atraso.
 
 Como exemplo, as features de memoização e hooks do React 16.6, que podem ajudar na refatoração e performance mas que não tinham como ser testadas corretamente.
@@ -34,6 +36,20 @@ A React Testing Library oferece alguns outros benefícios, como usar a árvore d
 ### Por que não usar service workers?
 
 Diretrizes de segurança, reforçar timeout, ???
+
+### Sugestões ao teste
+
+- Tornar o link da API da Ewally clicável no pdf
+
+### Problemas encontrandos durante o teste
+
+- Erro na documentação de API
+
+### Pontos interessantes de observar com candidatos
+
+- Houve problema de Cors? Como resolveu?
+- Qual a estrutura do projeto? Por que?
+- Usou classes ou hooks? Por que?
 
 #### generated md
 
