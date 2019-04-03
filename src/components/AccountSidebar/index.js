@@ -1,9 +1,9 @@
 import React from "react";
 
-const AccountSidebar = ({ currentBalance }) => {
+const AccountSidebar = ({ balance }) => {
   return (
     <div>
-      <p>Saldo: {currentBalance}</p>
+      <p>Saldo: {balance}</p>
     </div>
   );
 };
