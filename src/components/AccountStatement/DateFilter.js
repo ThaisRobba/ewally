@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
-const DateFilter = ({ start, setStart, end, setEnd, max, setSearchFlag }) => {
+const DateFilter = ({ start, setStart, end, setEnd, max }) => {
+  const [currentStart, setCurrentStart] = useState(start);
+  const [currentEnd, setCurrentEnd] = useState(end);
+
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchFlag(true);
+    setStart(currentStart);
+    setEnd(currentEnd);
   };
+
   return (
     <div>
       <span>Extrato:</span>
-      <form>
+      <form onSubmit={handleSubmit}>
         De:
         <input
           type="date"
           name="start"
-          value={start}
-          onChange={e => setStart(e.target.value)}
+          value={currentStart}
+          onChange={e => setCurrentStart(e.target.value)}
           max={max}
         />
         Até:
         <input
           type="date"
           name="end"
-          value={end}
-          onChange={e => setEnd(e.target.value)}
+          value={currentEnd}
+          onChange={e => setCurrentEnd(e.target.value)}
           max={max}
         />
-        <input type="submit" value="Pesquisar" onSubmit={handleSubmit} />
+        <input type="submit" value="Pesquisar" />
       </form>
     </div>
   );
