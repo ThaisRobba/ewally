@@ -33,7 +33,6 @@ const LoginForm = ({ history }) => {
   const [username, setUsername] = useState("testFrontEwally");
   const [password, setPassword] = useState("123456");
   const [, dispatch] = useStateValue();
-
   //TODO: Add feedback while request is being processed
   return (
     <form

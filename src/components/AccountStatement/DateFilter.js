@@ -1,6 +1,10 @@
 import React from "react";
 
-const DateFilter = (start, setStart, end, setEnd) => {
+const DateFilter = ({ start, setStart, end, setEnd, max, setSearchFlag }) => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    setSearchFlag(true);
+  };
   return (
     <div>
       <span>Extrato:</span>
@@ -11,6 +15,7 @@ const DateFilter = (start, setStart, end, setEnd) => {
           name="start"
           value={start}
           onChange={e => setStart(e.target.value)}
+          max={max}
         />
         Até:
         <input
@@ -18,8 +23,9 @@ const DateFilter = (start, setStart, end, setEnd) => {
           name="end"
           value={end}
           onChange={e => setEnd(e.target.value)}
+          max={max}
         />
-        <input type="submit" value="Pesquisar" />
+        <input type="submit" value="Pesquisar" onSubmit={handleSubmit} />
       </form>
     </div>
   );

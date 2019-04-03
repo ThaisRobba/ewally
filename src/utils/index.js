@@ -9,3 +9,8 @@ export const getHeaderConfig = token => {
     }
   };
 };
+
+export const getDateString = (offset = 0) => {
+  const date = new Date().setDate(new Date().getDate() + offset);
+  return new Date(date).toISOString().substring(0, 10);
+};
