@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 
@@ -59,6 +60,10 @@ const LoginForm = ({ history }) => {
       <input type="submit" value="Entrar" />
     </form>
   );
+};
+
+LoginForm.propTypes = {
+  history: PropTypes.object.isRequired
 };
 
 export default withRouter(LoginForm);

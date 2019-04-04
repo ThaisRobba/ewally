@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Bar } from "react-chartjs-2";
 import dayjs from "dayjs";
 
@@ -69,6 +70,12 @@ const StatementChart = ({ entries, start, end }) => {
   return (
     <Bar data={formatStatementData(entries, start, end)} options={options} />
   );
+};
+
+StatementChart.propTypes = {
+  entries: PropTypes.array.isRequired,
+  start: PropTypes.string.isRequired,
+  end: PropTypes.string.isRequired
 };
 
 export default StatementChart;

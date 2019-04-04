@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import Map from "./Map";
 
@@ -45,6 +46,10 @@ const TransactionList = ({ entries }) => {
       })}
     </ol>
   );
+};
+
+TransactionList.propTypes = {
+  entries: PropTypes.array.isRequired
 };
 
 export default TransactionList;
