@@ -4,16 +4,16 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 
 import { useStateValue } from "../state";
-import { SET_TOKEN } from "../reducer/actions";
+import { SET_TOKEN } from "../state/actions";
 
-import { api } from "../utils";
+import { API } from "../utils";
 
 const handleSubmit = (e, history, dispatch, username, password) => {
   e.preventDefault();
 
   //Validation
   axios
-    .post(`${api}/user/login`, {
+    .post(`${API}/user/login`, {
       username,
       password
     })

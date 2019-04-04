@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import { StateProvider } from "./state";
-import reducer from "./reducer";
+import reducer from "./state/reducer";
 
 import Login from "./pages/Login";
 import Account from "./pages/Account";

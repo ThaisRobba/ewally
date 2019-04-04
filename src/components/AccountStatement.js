@@ -6,12 +6,12 @@ import DateFilter from "./DateFilter";
 import TransactionList from "./TransactionList";
 import StatementChart from "./StatementChart";
 
-import { api, getHeaderConfig } from "../utils";
+import { API, getHeaderConfig } from "../utils";
 
 const getStatement = (token, start, end, setStatement) => {
   axios
     .get(
-      `${api}/b2b/statement?initialDate=${start}&finalDate=${end}`,
+      `${API}/b2b/statement?initialDate=${start}&finalDate=${end}`,
       getHeaderConfig(token)
     )
     .then(res => setStatement(res.data.statement))

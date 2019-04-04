@@ -5,11 +5,11 @@ import AccountStatement from "../components/AccountStatement";
 import AccountSidebar from "../components/AccountSidebar";
 
 import { useStateValue } from "../state";
-import { api, getHeaderConfig } from "../utils";
+import { API, getHeaderConfig } from "../utils";
 
 const getBalance = (token, setBalance) => {
   axios
-    .get(`${api}/account/balance`, getHeaderConfig(token))
+    .get(`${API}/account/balance`, getHeaderConfig(token))
     .then(res => {
       setBalance(res.data.balance);
     })
