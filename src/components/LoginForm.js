@@ -1,33 +1,22 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import { withRouter } from "react-router-dom";
 
 import { useStateValue } from "../state";
 import { SET_TOKEN } from "../state/actions";
 
-import { API } from "../utils";
+import postLogin from "../utils/postLogin";
 
 const handleSubmit = (e, history, dispatch, username, password) => {
   e.preventDefault();
 
-  //Validation
-  axios
-    .post(`${API}/user/login`, {
-      username,
-      password
-    })
-    .then(res => {
-      dispatch({
-        type: SET_TOKEN,
-        token: res.data.token
-      });
-      history.push("/account");
-    })
-    .catch(error => {
-      // TODO: Add error handling
-      console.log("Ooopsie.", error);
+  postLogin(username, password, res => {
+    dispatch({
+      type: SET_TOKEN,
+      token: res.data.token
     });
+    history.push("/account");
+  });
 };
 
 const LoginForm = ({ history }) => {

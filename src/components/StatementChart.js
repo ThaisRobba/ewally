@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Bar } from "react-chartjs-2";
 
-import { statementDataToChart } from "./statementDataToChart";
+import statementDataToChart from "../utils/statementDataToChart";
 
 const StatementChart = ({ entries, start, end }) => {
   if (entries.length <= 0) {
