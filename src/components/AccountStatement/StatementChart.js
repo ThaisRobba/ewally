@@ -35,14 +35,17 @@ const formatStatementData = (entries, start, end) => {
 
   const days = getDates(start, end);
 
-  days.forEach(date => {
+  days.forEach((date, i) => {
+    expenses.data[i] = 0;
+    income.data[i] = 0;
+
     data.labels.push(date.format("DD/MM"));
     entries.forEach(entry => {
       if (dayjs(entry.createdAt).isSame(date, "date")) {
         if (entry.amount < 0) {
-          expenses.data.push(entry.amount);
+          expenses.data[i] += entry.amount;
         } else {
-          income.data.push(entry.amount);
+          income.data[i] += entry.amount;
         }
       }
     });
@@ -52,6 +55,10 @@ const formatStatementData = (entries, start, end) => {
 };
 
 const StatementChart = ({ entries, start, end }) => {
+  if (entries.length <= 0) {
+    return <></>;
+  }
+
   const options = {
     scales: {
       yAxes: [{ stacked: true }],

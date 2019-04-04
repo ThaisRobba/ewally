@@ -47,9 +47,10 @@ Diretrizes de segurança, reforçar timeout, ???
 
 ### Pontos interessantes de observar com candidatos
 
-- Houve problema de Cors? Como resolveu?
 - Qual a estrutura do projeto? Por que?
 - Usou classes ou hooks? Por que?
+- Como lidou com os formatos de data? Usou lib? Se sim, qual e por que?
+- Quais melhorias faria, com mais tempo para o projeto?
 
 #### generated md
 
