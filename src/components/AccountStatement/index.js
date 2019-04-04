@@ -5,6 +5,8 @@ import DateFilter from "./DateFilter";
 import TransactionList from "./TransactionList";
 import StatementChart from "./StatementChart";
 
+import data from "./sampleData";
+
 import { api, getDateString, getHeaderConfig } from "../../utils";
 
 const getStatement = (token, start, end, setStatement) => {
@@ -36,7 +38,7 @@ const AccountStatement = ({ token }) => {
         setEnd={setEnd}
         max={getDateString()}
       />
-      <StatementChart entries={statement} />
+      <StatementChart entries={data.statement} start={start} end={end} />
       <TransactionList entries={statement} />
     </div>
   );
