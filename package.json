@@ -6,6 +6,8 @@
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
     "dayjs": "^1.8.12",
+    "pigeon-maps": "^0.12.1",
+    "pigeon-marker": "^0.3.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-chartjs-2": "^2.7.6",

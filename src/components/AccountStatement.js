@@ -5,8 +5,6 @@ import DateFilter from "./DateFilter";
 import TransactionList from "./TransactionList";
 import StatementChart from "./StatementChart";
 
-import data from "./sampleData";
-
 import { api, getDateString, getHeaderConfig } from "../utils";
 
 const getStatement = (token, start, end, setStatement) => {
@@ -24,8 +22,14 @@ const AccountStatement = ({ token }) => {
   const [start, setStart] = useState("2019-01-01"); //useState(getDateString(-30));
   const [end, setEnd] = useState("2019-01-31"); //useState(getDateString());
   const [statement, setStatement] = useState([]);
+  const [isFetchingData, setIsFetchingData] = useState(false);
 
   useEffect(() => {
+    setIsFetchingData(false);
+  }, [statement]);
+
+  useEffect(() => {
+    setIsFetchingData(true);
     getStatement(token, start, end, setStatement);
   }, [start, end]);
 
@@ -38,7 +42,8 @@ const AccountStatement = ({ token }) => {
         setEnd={setEnd}
         max={getDateString()}
       />
-      <StatementChart entries={data.statement} start={start} end={end} />
+      {isFetchingData ? <h1>fetching data...</h1> : <h2>data fetched!</h2>}
+      <StatementChart entries={statement} start={start} end={end} />
       <TransactionList entries={statement} />
     </div>
   );
