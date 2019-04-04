@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 
-import { useStateValue } from "../../state";
-import { SET_TOKEN } from "../../reducer/actions";
+import { useStateValue } from "../state";
+import { SET_TOKEN } from "../reducer/actions";
 
-import { api } from "../../utils";
+import { api } from "../utils";
 
 const handleSubmit = (e, history, dispatch, username, password) => {
   e.preventDefault();

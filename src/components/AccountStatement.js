@@ -7,7 +7,7 @@ import StatementChart from "./StatementChart";
 
 import data from "./sampleData";
 
-import { api, getDateString, getHeaderConfig } from "../../utils";
+import { api, getDateString, getHeaderConfig } from "../utils";
 
 const getStatement = (token, start, end, setStatement) => {
   axios
