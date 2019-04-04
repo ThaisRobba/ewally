@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import dayjs from "dayjs";
 
 import DateFilter from "./DateFilter";
 import TransactionList from "./TransactionList";
 import StatementChart from "./StatementChart";
 
-import { api, getDateString, getHeaderConfig } from "../utils";
+import { api, getHeaderConfig } from "../utils";
 
 const getStatement = (token, start, end, setStatement) => {
   axios
@@ -18,9 +19,12 @@ const getStatement = (token, start, end, setStatement) => {
 };
 
 const AccountStatement = ({ token }) => {
-  //TODO: Revert back to dynamic state
-  const [start, setStart] = useState("2019-01-01"); //useState(getDateString(-30));
-  const [end, setEnd] = useState("2019-01-31"); //useState(getDateString());
+  const [start, setStart] = useState(
+    dayjs()
+      .subtract(30, "day")
+      .format("YYYY-MM-DD")
+  );
+  const [end, setEnd] = useState(dayjs().format("YYYY-MM-DD"));
   const [statement, setStatement] = useState([]);
   const [isFetchingData, setIsFetchingData] = useState(false);
 
@@ -40,7 +44,7 @@ const AccountStatement = ({ token }) => {
         setStart={setStart}
         end={end}
         setEnd={setEnd}
-        max={getDateString()}
+        max={dayjs().format("YYYY-MM-DD")}
       />
       {isFetchingData ? <h1>fetching data...</h1> : <h2>data fetched!</h2>}
       <StatementChart entries={statement} start={start} end={end} />
