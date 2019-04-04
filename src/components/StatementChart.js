@@ -3,18 +3,7 @@ import PropTypes from "prop-types";
 import { Bar } from "react-chartjs-2";
 import dayjs from "dayjs";
 
-const getDates = (start, end) => {
-  const dates = [];
-
-  const date1 = dayjs(start);
-  const date2 = dayjs(end);
-
-  for (let i = 0; i <= date2.diff(date1, "day"); i++) {
-    dates.push(dayjs(start).add(i, "day"));
-  }
-
-  return dates;
-};
+import { createDateRangeByDays } from "../utils";
 
 const formatStatementData = (entries, start, end) => {
   const expenses = {
@@ -34,7 +23,7 @@ const formatStatementData = (entries, start, end) => {
     datasets: [expenses, income]
   };
 
-  const days = getDates(start, end);
+  const days = createDateRangeByDays(start, end);
 
   days.forEach((date, i) => {
     expenses.data[i] = 0;
