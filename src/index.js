@@ -8,6 +8,8 @@ import reducer from "./state/reducer";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 
+import "./reset.css";
+
 const App = () => {
   const initialState = {
     token: ""

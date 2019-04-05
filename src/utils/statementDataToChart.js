@@ -10,7 +10,7 @@ const formatStatementData = (entries, start, end) => {
 
   const income = {
     label: "Entrada",
-    backgroundColor: "##00a1b6",
+    backgroundColor: "#00a1b6",
     data: []
   };
 

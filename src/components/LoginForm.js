@@ -4,8 +4,11 @@ import { withRouter } from "react-router-dom";
 
 import { useStateValue } from "../state";
 import { SET_TOKEN } from "../state/actions";
-
 import postLogin from "../utils/postLogin";
+
+import Label from "./Label";
+import InputField from "./InputField";
+import LargeButton from "./LargeButton";
 
 const handleSubmit = (e, history, dispatch, username, password) => {
   e.preventDefault();
@@ -28,25 +31,24 @@ const LoginForm = ({ history }) => {
     <form
       onSubmit={e => handleSubmit(e, history, dispatch, username, password)}
     >
-      <label>
-        Usuário(a):
-        <input
-          type="text"
-          name="name"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-      </label>
-      <label>
-        Senha:
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-      </label>
-      <input type="submit" value="Entrar" />
+      <Label for="name">Usuário(a)</Label>
+      <InputField
+        type="text"
+        name="name"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+      />
+
+      <Label for="password">Senha</Label>
+      <InputField
+        type="password"
+        name="password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+      />
+      <LargeButton margin="18px 0 0 0" type="submit">
+        Entrar
+      </LargeButton>
     </form>
   );
 };

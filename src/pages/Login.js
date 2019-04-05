@@ -1,11 +1,17 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 
+import Background from "../components/Background";
+import Modal from "../components/Modal";
+import Logo from "../components/Logo";
+
 const Login = () => (
-  <div>
-    <h1>login</h1>
-    <LoginForm />
-  </div>
+  <Background color="#00a1b6">
+    <Modal>
+      <Logo />
+      <LoginForm />
+    </Modal>
+  </Background>
 );
 
 export default Login;
