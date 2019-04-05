@@ -1,8 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Bar } from "react-chartjs-2";
+import styled from "styled-components";
 
 import statementDataToChart from "../utils/statementDataToChart";
+
+const Container = styled.div`
+  padding: 0px 16px 0 10px;
+`;
 
 const StatementChart = ({ entries, start, end }) => {
   if (entries.length <= 0) {
@@ -17,7 +22,9 @@ const StatementChart = ({ entries, start, end }) => {
   };
 
   return (
-    <Bar data={statementDataToChart(entries, start, end)} options={options} />
+    <Container>
+      <Bar data={statementDataToChart(entries, start, end)} options={options} />
+    </Container>
   );
 };
 
