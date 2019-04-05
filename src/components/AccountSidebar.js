@@ -34,7 +34,7 @@ const AccountSidebar = ({ balance }) => {
         {balance === undefined ? (
           <Spinner size="6" />
         ) : (
-          <BalanceValue>formatCurrency(balance)</BalanceValue>
+          <BalanceValue>{formatCurrency(balance)}</BalanceValue>
         )}
       </Sidebar>
     </Background>
