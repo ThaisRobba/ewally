@@ -19,22 +19,20 @@ const AccountStatement = ({ token }) => {
   const [isFetchingData, setIsFetchingData] = useState(false);
 
   useEffect(() => {
-    setIsFetchingData(false);
-  }, [statement]);
+    // setIsFetchingData(true);
 
-  useEffect(() => {
-    setIsFetchingData(true);
+    console.log(isFetchingData, statement);
     //TODO: revert back to real API
-
     setStatement(data.statement);
-    // getStatement(token, start, end, res => setStatement(res.data.statement));
+    // getStatement(token, start, end, res => {
+    //   setStatement(res.data.statement);
+    //   setIsFetchingData(false);
+    // });
   }, [start, end]);
 
   return (
     <div
       style={{
-        display: "grid",
-        gridTemplateRows: "50px 3fr 3fr",
         height: "100%"
       }}
     >
@@ -46,7 +44,7 @@ const AccountStatement = ({ token }) => {
         max={dayjs().format("YYYY-MM-DD")}
       />
       <StatementChart entries={statement} start={start} end={end} />
-      <TransactionList entries={statement} />
+      <TransactionList entries={statement} isFetchingData={isFetchingData} />
     </div>
   );
 };

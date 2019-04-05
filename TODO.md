@@ -1,7 +1,7 @@
 Geral
 [ ] Retornar para login caso o token se torne inválido/expire
 [x] Adicionar favicon
-[ ] Formatar moeda (R\$)
+[x] Formatar moeda (R\$)
 [x] Converter data pra dayjs
 [ ] Testes
 [ ] Adicionar propTypes
@@ -10,7 +10,7 @@ Home
 [x] Adicionar logo
 [x] Estilizar CSS
 [ ] Adicionar validação
-[ ] Adicionar spinner de processamento
+[x] Adicionar spinner de processamento
 
 Statement
 [x] Filtro com valores iniciais para o dia atual -30 dias
