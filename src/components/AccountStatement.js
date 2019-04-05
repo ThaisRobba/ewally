@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import dayjs from "dayjs";
 
 import DateFilter from "./DateFilter";
 import TransactionList from "./TransactionList";
 import StatementChart from "./StatementChart";
 
-import { API, getHeaderConfig } from "../utils";
-
-const getStatement = (token, start, end, setStatement) => {
-  axios
-    .get(
-      `${API}/b2b/statement?initialDate=${start}&finalDate=${end}`,
-      getHeaderConfig(token)
-    )
-    .then(res => setStatement(res.data.statement))
-    .catch(error => console.log(error));
-};
+import getStatement from "../utils/getStatement";
+import data from "./sampleData";
 
 const AccountStatement = ({ token }) => {
   const [start, setStart] = useState(
@@ -34,11 +24,20 @@ const AccountStatement = ({ token }) => {
 
   useEffect(() => {
     setIsFetchingData(true);
-    getStatement(token, start, end, setStatement);
+    //TODO: revert back to real API
+
+    setStatement(data.statement);
+    // getStatement(token, start, end, res => setStatement(res.data.statement));
   }, [start, end]);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateRows: "50px 3fr 3fr",
+        height: "100%"
+      }}
+    >
       <DateFilter
         start={start}
         setStart={setStart}
@@ -46,7 +45,6 @@ const AccountStatement = ({ token }) => {
         setEnd={setEnd}
         max={dayjs().format("YYYY-MM-DD")}
       />
-      {isFetchingData ? <h1>fetching data...</h1> : <h2>data fetched!</h2>}
       <StatementChart entries={statement} start={start} end={end} />
       <TransactionList entries={statement} />
     </div>
