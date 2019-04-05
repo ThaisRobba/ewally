@@ -31,13 +31,11 @@ const AccountSidebar = ({ balance }) => {
     <Background color="#00a1b6">
       <Sidebar>
         <BalanceTitle>Saldo</BalanceTitle>
-        <BalanceValue>
-          {balance === undefined ? (
-            <Spinner size="6" />
-          ) : (
-            formatCurrency(balance)
-          )}
-        </BalanceValue>
+        {balance === undefined ? (
+          <Spinner size="6" />
+        ) : (
+          <BalanceValue>formatCurrency(balance)</BalanceValue>
+        )}
       </Sidebar>
     </Background>
   );
