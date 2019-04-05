@@ -1,14 +1,14 @@
 Geral
 [ ] Retornar para login caso o token se torne inválido/expire
-[ ] Adicionar favicon
+[x] Adicionar favicon
 [ ] Formatar moeda (R\$)
-[ ] Converter data pra dayjs
+[x] Converter data pra dayjs
 [ ] Testes
 [ ] Adicionar propTypes
 
 Home
-[ ] Adicionar logo
-[ ] Estilizar CSS
+[x] Adicionar logo
+[x] Estilizar CSS
 [ ] Adicionar validação
 [ ] Adicionar spinner de processamento
 

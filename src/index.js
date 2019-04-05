@@ -8,7 +8,8 @@ import reducer from "./state/reducer";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 
-import "./reset.css";
+import "./styles/reset.css";
+import "./styles/style.css";
 
 const App = () => {
   const initialState = {

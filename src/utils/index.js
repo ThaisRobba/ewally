@@ -22,3 +22,13 @@ export const createDateRangeByDays = (start, end) => {
 
   return dates;
 };
+
+export const formatCurrency = amount => {
+  let formatted = "R$ " + amount.toLocaleString("pt-BR");
+
+  if (amount % 1 == 0) {
+    formatted += ",00";
+  }
+
+  return formatted;
+};
