@@ -46,14 +46,13 @@ describe("Converting statement to chart compatible data", () => {
   test("data structure should match chartjs format", () => {
     const sampleOutput = {
       labels: ["01/01", "02/01"],
-      datasets: [
-        { label: "Saída", backgroundColor: "#F85F73", data: [0, -100] },
-        { label: "Entrada", backgroundColor: "#22FF73", data: [100, 0] }
-      ]
+      datasets: [{ data: [0, -100] }, { data: [100, 0] }]
     };
 
     const result = statementDataToChart(sampleData, earlierDate, secondDay);
 
-    expect(result).toEqual(sampleOutput);
+    expect(result.labels).toEqual(sampleOutput.labels);
+    expect(result.datasets[0].data).toEqual(sampleOutput.datasets[0].data);
+    expect(result.datasets[1].data).toEqual(sampleOutput.datasets[1].data);
   });
 });
