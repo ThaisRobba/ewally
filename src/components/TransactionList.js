@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import Map from "./Map";
 import Background from "./Background";
 import Spinner from "./Spinner";
+import TransactionDescriptionList from "./TransactionDescriptionList";
 
 import { formatCurrency, formatTransactionType } from "../utils";
 
@@ -105,7 +106,7 @@ const TransactionList = ({ entries, isFetchingData }) => {
                 <p>{selectedEntry !== entry.id ? "+" : "-"}</p>
               </InitialContent>
               <ExpandableContent hidden={selectedEntry !== entry.id}>
-                <p>more info</p>
+                <TransactionDescriptionList entry={entry} />
                 <Map
                   latitude={entry.otherInfo.userLatitude}
                   longitude={entry.otherInfo.userLongitude}
