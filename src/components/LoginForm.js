@@ -9,45 +9,74 @@ import postLogin from "../utils/postLogin";
 import Label from "./Label";
 import InputField from "./InputField";
 import LargeButton from "./LargeButton";
-
-const handleSubmit = (e, history, dispatch, username, password) => {
-  e.preventDefault();
-
-  postLogin(username, password, res => {
-    dispatch({
-      type: SET_TOKEN,
-      token: res.data.token
-    });
-    history.push("/account");
-  });
-};
+import Spinner from "./Spinner";
 
 const LoginForm = ({ history }) => {
   const [username, setUsername] = useState("testFrontEwally");
   const [password, setPassword] = useState("123456");
+  const [isWaitingRequest, setIsWaitingRequest] = useState(false);
+  const [errors, setErrors] = useState([]);
   const [, dispatch] = useStateValue();
-  //TODO: Add feedback while request is being processed
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setIsWaitingRequest(true);
+
+    postLogin(
+      username,
+      password,
+      res => {
+        console.log("hello");
+        setIsWaitingRequest(false);
+        dispatch({
+          type: SET_TOKEN,
+          token: res.data.token
+        });
+        history.push("/account");
+      },
+      error => {
+        console.log(error);
+        setIsWaitingRequest(false);
+      }
+    );
+  };
+
   return (
     <form
-      onSubmit={e => handleSubmit(e, history, dispatch, username, password)}
+      onSubmit={e =>
+        handleSubmit(
+          e,
+          history,
+          dispatch,
+          setIsWaitingRequest,
+          username,
+          password
+        )
+      }
     >
-      <Label for="name">Usuário(a)</Label>
+      <Label htmlFor="name">Usuário(a)</Label>
       <InputField
+        disabled={isWaitingRequest}
         type="text"
         name="name"
         value={username}
         onChange={e => setUsername(e.target.value)}
       />
 
-      <Label for="password">Senha</Label>
+      <Label htmlFor="password">Senha</Label>
       <InputField
+        disabled={isWaitingRequest}
         type="password"
         name="password"
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-      <LargeButton margin="18px 0 0 0" type="submit">
-        Entrar
+      <LargeButton
+        margin="18px 0 0 0"
+        type="submit"
+        disabled={isWaitingRequest}
+      >
+        {isWaitingRequest ? <Spinner margin="auto" size="3" /> : "Entrar"}
       </LargeButton>
     </form>
   );

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const LargeButton = styled.button`
   width: 100%;
+  height: 32px;
   background-color: #870b4e;
   border: none;
   border-radius: 4px;
@@ -14,6 +15,11 @@ const LargeButton = styled.button`
   &:hover {
     background-color: #741548;
     cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: grey;
   }
 `;
 

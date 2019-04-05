@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
 
 /* CSS originally from https://projects.lukehaas.me/css-loaders/ */
@@ -83,12 +82,11 @@ const spin = keyframes`
 const baseSize = 16;
 
 const Spinner = styled.div`
-  margin: ${props => props.size * 4 || baseSize * 4}px auto;
+  margin: ${props => props.margin || baseSize * 4 + "px auto"};
   font-size: ${props => props.size || baseSize}px;
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  position: relative;
   text-indent: -9999em;
   animation: ${spin} 1.1s infinite ease;
   transform: translateZ(0);
