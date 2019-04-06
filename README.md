@@ -23,14 +23,6 @@
 
 ## Notas
 
-### Escolha da lib de testes
-
-É muito comum os projetos ReactJS utilizaram a Enzyme, do AirBnB. Um dos maiores problemas com essa biblioteca é que, pelo jeito que a mesma é estruturada, o suporte para features novas de React acaba sempre tendo um atraso.
-
-Como exemplo, as features de memoização e hooks do React 16.6, que podem ajudar na refatoração e performance mas que não tinham como ser testadas corretamente.
-
-A React Testing Library oferece alguns outros benefícios, como usar a árvore de render real, o que facilita a compreensão de testes quebrados e a montagem de novos testes.
-
 ### Pontos de melhora
 
 - A validação no formulário de login é bem básica - só é verificado se houve ou não falha, mas não é filtrado o tipo de erro para informar a pessoa qual a melhor forma de proceder
