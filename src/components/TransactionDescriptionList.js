@@ -1,26 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-import { formatStatus } from "../utils";
+const formatDescription = cupom => {
+  let str = cupom.replace(/@/g, "\n");
+  let lines = str.split("\n");
 
-const formatDescription = entry => {
-  let items = ["ID: " + entry.id];
-
-  if (entry.status) {
-    items.push("\nStatus: " + formatStatus(entry.status));
-  }
-
-  if (entry.otherInfo && entry.otherInfo.otherAccountName) {
-    items.push("\nID de Terceiro: " + entry.otherInfo.otherAccountName);
-  }
-
-  return items;
+  return lines;
 };
 
 const DescriptionText = styled.p`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.9em;
-  font-weight: 500;
+  font-size: 10px;
+  padding: 0 4px;
+  text-align: center;
   color: #333;
 
   @media (max-width: 599px) {
@@ -28,20 +20,25 @@ const DescriptionText = styled.p`
   }
 `;
 
-const UnorderedList = styled.ul`
+const Container = styled.div`
   @media (max-width: 599px) {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 `;
+
 const TransactionDescriptionList = ({ entry }) => {
+  let cupom = entry.otherInfo.cupom;
+
+  if (cupom === undefined) {
+    return <div />;
+  }
+
   return (
-    <UnorderedList>
-      {formatDescription(entry).map(line => (
-        <li key={entry.id}>
-          <DescriptionText>{line}</DescriptionText>
-        </li>
-      ))}
-    </UnorderedList>
+    <Container>
+      {formatDescription(cupom).map((line, i) => {
+        return <DescriptionText key={i}>{line}</DescriptionText>;
+      })}
+    </Container>
   );
 };
 
