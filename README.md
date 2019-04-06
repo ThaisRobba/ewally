@@ -34,10 +34,12 @@ A React Testing Library oferece alguns outros benefícios, como usar a árvore d
 ### Pontos de melhora
 
 - A validação no formulário de login é bem básica - só é verificado se houve ou não falha, mas não é filtrado o tipo de erro para informar a pessoa qual a melhor forma de proceder
+- O aviso de erro dentro do extrato em si é extremamente básico (e num mundo ideal, num deveria acontecer) e não fornece informações suficientes de como proceder.
 - Pro número de módulos e número de formatos de tela, o ideal é que houvesse uma bateria de testes de integração
 - Revisar quais bibliotecas poderiam ser excluídas em prol de implementações mais enxutas
 - Adicionar animações e transições mais suaves para os elementos que são carregados e expandidos
 - Migrar para GraphQL permitiria fazer menos requests ao servidor, agilizando o processo (isso depende de mudanças no backend) e facilitando a obtenção de informações
+- Se houver um problema na obtenção do extrato e do saldo, os componentes de loading permanecem. Sua lógica precisaria ser levemente refatorada.
 
 ### Sugestões ao teste
 
