@@ -40,6 +40,7 @@ A React Testing Library oferece alguns outros benefícios, como usar a árvore d
 - Adicionar animações e transições mais suaves para os elementos que são carregados e expandidos
 - Migrar para GraphQL permitiria fazer menos requests ao servidor, agilizando o processo (isso depende de mudanças no backend) e facilitando a obtenção de informações
 - Se houver um problema na obtenção do extrato e do saldo, os componentes de loading permanecem. Sua lógica precisaria ser levemente refatorada.
+- Uma das maiores vantagens de user styled-components é o reuso, a criação de componentes base. Vários elementos poderiam ser ajustados e refatorados nesse sentido.
 
 ### Sugestões ao teste
 

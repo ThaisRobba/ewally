@@ -7,7 +7,8 @@ import Map from "./Map";
 import Spinner from "./Spinner";
 import TransactionDescriptionList from "./TransactionDescriptionList";
 
-import { formatCurrency, formatTransactionType } from "../utils";
+import { formatTransactionType } from "../utils";
+import formatCurrency from "../utils/formatCurrency";
 
 const OrderedList = styled.ol`
   border: 1px solid lightgrey;

@@ -1,10 +1,10 @@
 import React from "react";
-// import PropTypes from "PropTypes";
 import styled from "styled-components";
+
 import Background from "./Background";
 import Spinner from "./Spinner";
 
-import { formatCurrency } from "../utils";
+import formatCurrency from "../utils/formatCurrency";
 
 const Sidebar = styled.div`
   padding: 16px;
@@ -40,9 +40,5 @@ const AccountSidebar = ({ balance }) => {
     </Background>
   );
 };
-
-// AccountSidebar.propTypes = {
-//   balance: PropTypes.number
-// };
 
 export default AccountSidebar;
