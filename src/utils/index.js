@@ -52,15 +52,6 @@ export const formatTransactionType = type => {
   }
 };
 
-export const formatStatus = status => {
-  switch (status) {
-    case "COMPLETED":
-      return "Completado";
-    default:
-      return status;
-  }
-};
-
 export const formatCurrency = amount => {
   let formatted;
 
