@@ -19,8 +19,6 @@ const Account = () => {
   const [{ token }] = useStateValue();
   const [balance, setBalance] = useState();
 
-  //TODO: If token is empty, we take the person back to the login screen
-
   useEffect(() => {
     fetchBalance(token, res => setBalance(res.data.balance));
   }, []);
