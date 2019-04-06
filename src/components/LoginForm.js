@@ -10,23 +10,28 @@ import Label from "./Label";
 import InputField from "./InputField";
 import LargeButton from "./LargeButton";
 import Spinner from "./Spinner";
+import BubbleError from "./BubbleError";
+
+const showError = error => {
+  return <BubbleError>{error.message}</BubbleError>;
+};
 
 const LoginForm = ({ history }) => {
-  const [username, setUsername] = useState("testFrontEwally");
-  const [password, setPassword] = useState("123456");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [isWaitingRequest, setIsWaitingRequest] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [currentError, setCurrentError] = useState(null);
   const [, dispatch] = useStateValue();
 
   const handleSubmit = e => {
     e.preventDefault();
     setIsWaitingRequest(true);
+    setCurrentError(null);
 
     postLogin(
       username,
       password,
       res => {
-        console.log("hello");
         setIsWaitingRequest(false);
         dispatch({
           type: SET_TOKEN,
@@ -35,25 +40,15 @@ const LoginForm = ({ history }) => {
         history.push("/account");
       },
       error => {
-        console.log(error);
         setIsWaitingRequest(false);
+        setCurrentError(error);
       }
     );
   };
 
   return (
-    <form
-      onSubmit={e =>
-        handleSubmit(
-          e,
-          history,
-          dispatch,
-          setIsWaitingRequest,
-          username,
-          password
-        )
-      }
-    >
+    <form onSubmit={handleSubmit}>
+      {currentError !== null ? showError(currentError) : null}
       <Label htmlFor="name">Usuário(a)</Label>
       <InputField
         disabled={isWaitingRequest}
