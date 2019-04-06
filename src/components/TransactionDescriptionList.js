@@ -21,17 +21,27 @@ const DescriptionText = styled.p`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.9em;
   font-weight: 500;
+  color: #333;
+
+  @media (max-width: 599px) {
+    font-size: 0.7em;
+  }
 `;
 
+const UnorderedList = styled.ul`
+  @media (max-width: 599px) {
+    margin-bottom: 8px;
+  }
+`;
 const TransactionDescriptionList = ({ entry }) => {
   return (
-    <ul>
+    <UnorderedList>
       {formatDescription(entry).map(line => (
         <li key={entry.id}>
           <DescriptionText>{line}</DescriptionText>
         </li>
       ))}
-    </ul>
+    </UnorderedList>
   );
 };
 

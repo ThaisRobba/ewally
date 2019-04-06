@@ -5,6 +5,8 @@ Geral
 [x] Converter data pra dayjs
 [ ] Testes
 [ ] Adicionar propTypes
+[ ] Adicionar constantes de tamanho de device
+[ ] Limpar TODOs
 
 Home
 [x] Adicionar logo
@@ -14,12 +16,12 @@ Home
 
 Statement
 [x] Filtro com valores iniciais para o dia atual -30 dias
-[ ] Permitar trocar entre as datas de começo e fim (DE: sendo mais tarde, ATÉ: sendo mais cedo)
 [x] Evitar reload ao dar refresh das datas
 [ ] Verificar compatibilidade de form de data (Safari não funciona parece)
 [ ] Implementar polyfill de data
 [x] Integrar API de mapas para detalhes da operação
-[ ] Adicionar informações extras da transação
+[x] Adicionar informações extras da transação
 [x] Adicionar gráfico de transações
-[ ] Estilizar CSS
-[ ] Definir se haverá algum onClick do pin do mapa
+[x] Estilizar CSS
+[x] Definir se haverá algum onClick do pin do mapa
+[ ] Adaptar para mobile

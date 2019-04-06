@@ -6,7 +6,6 @@ import TransactionList from "./TransactionList";
 import StatementChart from "./StatementChart";
 
 import getStatement from "../utils/getStatement";
-import data from "./sampleData";
 
 const AccountStatement = ({ token }) => {
   const [start, setStart] = useState(
@@ -19,23 +18,16 @@ const AccountStatement = ({ token }) => {
   const [isFetchingData, setIsFetchingData] = useState(false);
 
   useEffect(() => {
-    // setIsFetchingData(true);
+    setIsFetchingData(true);
 
-    console.log(isFetchingData, statement);
-    //TODO: revert back to real API
-    setStatement(data.statement);
-    // getStatement(token, start, end, res => {
-    //   setStatement(res.data.statement);
-    //   setIsFetchingData(false);
-    // });
+    getStatement(token, start, end, res => {
+      setStatement(res.data.statement);
+      setIsFetchingData(false);
+    });
   }, [start, end]);
 
   return (
-    <div
-      style={{
-        height: "100%"
-      }}
-    >
+    <div>
       <DateFilter
         start={start}
         setStart={setStart}

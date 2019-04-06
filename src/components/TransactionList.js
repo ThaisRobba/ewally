@@ -4,7 +4,6 @@ import styled from "styled-components";
 import dayjs from "dayjs";
 
 import Map from "./Map";
-import Background from "./Background";
 import Spinner from "./Spinner";
 import TransactionDescriptionList from "./TransactionDescriptionList";
 
@@ -16,20 +15,18 @@ const OrderedList = styled.ol`
 
 const InitialContent = styled.div`
   display: grid;
-  grid-template-columns: 16fr 32fr 16fr 1fr;
+  grid-template-columns: 16fr 28fr 28fr 1fr;
+  column-gap: 20px;
 `;
 
 const ExpandableContent = styled.div`
   display: ${props => (props.hidden ? "none" : "grid")};
-  grid-template-columns: 1fr 1fr;
   padding-top: 12px;
-`;
-const LoadingContainer = styled.div`
-  border-radius: 100px;
-  background-color: #00a1b6;
-  width: 64px;
-  height: 64px;
-  margin: auto;
+  overflow: hidden;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const NegativeResponse = styled.p`
@@ -50,13 +47,23 @@ const ListItem = styled.li`
 `;
 
 const Container = styled.div`
-  padding: 18px;
+  @media (min-width: 599px) {
+    padding: 18px;
+  }
 `;
 
 const DescriptionText = styled.p`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.9em;
   font-weight: 500;
+
+  @media (max-width: 599px) {
+    font-size: 0.7em;
+  }
+`;
+
+const Toggle = styled.p`
+  font-family: "Courier New", Courier, monospace;
 `;
 
 const TransactionList = ({ entries, isFetchingData }) => {
@@ -103,7 +110,7 @@ const TransactionList = ({ entries, isFetchingData }) => {
                 <DescriptionText>
                   {formatCurrency(entry.amount)}
                 </DescriptionText>
-                <p>{selectedEntry !== entry.id ? "+" : "-"}</p>
+                <Toggle>{selectedEntry !== entry.id ? "+" : "-"}</Toggle>
               </InitialContent>
               <ExpandableContent hidden={selectedEntry !== entry.id}>
                 <TransactionDescriptionList entry={entry} />
