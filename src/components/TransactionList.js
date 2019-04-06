@@ -68,7 +68,7 @@ const Toggle = styled.p`
 
 const TransactionList = ({ entries, isFetchingData }) => {
   const [selectedEntry, setSelectedEntry] = useState();
-  console.log(entries);
+
   useEffect(() => {
     setSelectedEntry(null);
   }, [entries]);

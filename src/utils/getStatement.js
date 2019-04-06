@@ -8,7 +8,7 @@ const getStatement = (token, start, end, onSuccess, onError) => {
       getHeaderConfig(token)
     )
     .then(onSuccess)
-    .catch(error => console.log(error));
+    .catch(onError);
 };
 
 export default getStatement;
