@@ -6,7 +6,7 @@ const LargeButton = styled.button`
   background-color: #870b4e;
   border: none;
   border-radius: 4px;
-  font-family: Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
   color: white;
   padding: 8px;
